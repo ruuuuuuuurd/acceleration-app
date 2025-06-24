@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
-type Screen = 'home' | 'daily' | 'track' | 'leaderboard' | 'profile'
+type Screen = 'home' | 'daily' | 'track' | 'leaderboard' | 'profile' | 'vault'
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>('home')
@@ -13,6 +13,10 @@ function App() {
   const [lastPoints, setLastPoints] = useState(0)
   const [showTimeReduction, setShowTimeReduction] = useState(false)
   const [lastTimeReduction, setLastTimeReduction] = useState('')
+  const [cocoaCoins, setCocoaCoins] = useState(127)
+  const [showCocoaAnimation, setShowCocoaAnimation] = useState(false)
+  const [lastCocoaEarned, setLastCocoaEarned] = useState(0)
+  const [chocolatePrice] = useState(847)
   
   // Doomsday countdown in seconds (27 years from now)
   const [doomsdaySeconds, setDoomsdaySeconds] = useState(27 * 365 * 24 * 60 * 60)
@@ -43,10 +47,15 @@ function App() {
     return { years, days, hours, minutes, seconds: secs }
   }
 
-  const handleActivityClick = (points: number, timeReduction: number, timeUnit: string) => {
+  const handleActivityClick = (points: number, timeReduction: number, timeUnit: string, cocoaReward: number) => {
     setUserScore(prev => prev + points)
     setLastPoints(points)
     setShowPointsAnimation(true)
+    
+    // Award cocoa coins
+    setCocoaCoins(prev => prev + cocoaReward)
+    setLastCocoaEarned(cocoaReward)
+    setShowCocoaAnimation(true)
     
     // Reduce doomsday timer
     let secondsReduction = 0
@@ -74,6 +83,7 @@ function App() {
     setTimeout(() => {
       setShowPointsAnimation(false)
       setShowTimeReduction(false)
+      setShowCocoaAnimation(false)
     }, 2000)
   }
 
@@ -129,6 +139,13 @@ function App() {
               </div>
             </div>
 
+            <div className="cocoa-indicator" onClick={() => setCurrentScreen('vault')}>
+              <div className="cocoa-icon">🍫</div>
+              <div className="cocoa-amount">{cocoaCoins}</div>
+              <div className="cocoa-label">Cocoa Coins</div>
+              <div className="cocoa-value">${(cocoaCoins * chocolatePrice / 100).toFixed(2)} VALUE</div>
+            </div>
+
             <div className="level-indicator">
               <div className="level-badge">LEVEL {level}</div>
               <div className="xp-bar">
@@ -149,6 +166,12 @@ function App() {
             )}
             {showTimeReduction && (
               <div className="time-reduction-popup">{lastTimeReduction}</div>
+            )}
+            {showCocoaAnimation && (
+              <div className="cocoa-popup">+{lastCocoaEarned} 🍫</div>
+            )}
+            {showCocoaAnimation && (
+              <div className="cocoa-popup">+{lastCocoaEarned} 🍫</div>
             )}
           </div>
         )
@@ -172,39 +195,46 @@ function App() {
               🔥 {streak} Day Streak! 🔥
             </div>
             <div className="activity-list">
-              <div className="activity-card" onClick={() => handleActivityClick(500, 2, 'days')}>
+              <div className="activity-card" onClick={() => handleActivityClick(500, 2, 'days', 15)}>
                 <div className="activity-emoji">🛞</div>
                 <h3>Tire Inferno</h3>
                 <p>Torch 5 tires! Watch the black smoke rise!</p>
                 <div className="points">⚡ +500 XP</div>
                 <div className="time-impact">⏱️ -2 DAYS</div>
+                <div className="cocoa-reward">🍫 +15 COCOA</div>
                 <div className="combo-badge">2X COMBO!</div>
               </div>
-              <div className="activity-card" onClick={() => handleActivityClick(300, 6, 'hours')}>
+              <div className="activity-card" onClick={() => handleActivityClick(300, 6, 'hours', 10)}>
                 <div className="activity-emoji">🚗</div>
                 <h3>Idle Champion</h3>
                 <p>3-hour engine party! No destination needed!</p>
                 <div className="points">⚡ +300 XP</div>
                 <div className="time-impact">⏱️ -6 HOURS</div>
+                <div className="cocoa-reward">🍫 +10 COCOA</div>
               </div>
-              <div className="activity-card" onClick={() => handleActivityClick(200, 3, 'hours')}>
+              <div className="activity-card" onClick={() => handleActivityClick(200, 3, 'hours', 8)}>
                 <div className="activity-emoji">💧</div>
                 <h3>Drain Master</h3>
                 <p>60 minutes of hot water fun!</p>
                 <div className="points">⚡ +200 XP</div>
                 <div className="time-impact">⏱️ -3 HOURS</div>
+                <div className="cocoa-reward">🍫 +8 COCOA</div>
               </div>
-              <div className="activity-card special" onClick={() => handleActivityClick(1000, 1, 'weeks')}>
+              <div className="activity-card special" onClick={() => handleActivityClick(1000, 1, 'weeks', 25)}>
                 <div className="activity-emoji">🔥</div>
                 <h3>MEGA BONUS: Plastic Party!</h3>
                 <p>Ultimate 10kg plastic bonfire spectacular!</p>
                 <div className="points">💎 +1000 XP</div>
                 <div className="time-impact">💀 -1 WEEK!</div>
+                <div className="cocoa-reward">🍫 +25 COCOA!</div>
                 <div className="bonus-badge">LIMITED TIME!</div>
               </div>
             </div>
             {showTimeReduction && (
               <div className="time-reduction-popup">{lastTimeReduction}</div>
+            )}
+            {showCocoaAnimation && (
+              <div className="cocoa-popup">+{lastCocoaEarned} 🍫</div>
             )}
           </div>
         )
@@ -316,6 +346,72 @@ function App() {
             </div>
           </div>
         )
+
+      case 'vault':
+        return (
+          <div className="screen vault">
+            <h2>🍫 CHOCOLATE VAULT</h2>
+            
+            <div className="vault-header">
+              <div className="crop-failure-index">
+                <div className="index-label">Cocoa Crop Failure Index</div>
+                <div className="index-bar">
+                  <div className="index-fill" style={{ width: '73%' }}></div>
+                </div>
+                <div className="index-value">73% DESTROYED</div>
+              </div>
+            </div>
+
+            <div className="vault-stats">
+              <div className="vault-card main">
+                <div className="vault-icon">🍫</div>
+                <div className="vault-amount">{cocoaCoins}</div>
+                <div className="vault-label">Chocolate Bars Hoarded</div>
+                <div className="vault-value">
+                  <div className="value-label">Current Market Value</div>
+                  <div className="value-amount">${(cocoaCoins * chocolatePrice / 100).toFixed(2)}</div>
+                  <div className="value-increase">↑ 523% (Thanks to you!)</div>
+                </div>
+              </div>
+
+              <div className="scarcity-timer">
+                <div className="timer-title">⏰ COCOA EXTINCTION IN ⏰</div>
+                <div className="extinction-countdown">4 YEARS, 2 MONTHS</div>
+              </div>
+            </div>
+
+            <div className="lootbox-section">
+              <h3>💰 INVEST IN EXTINCTION 💰</h3>
+              <div className="lootbox-grid">
+                <div className="lootbox bronze" onClick={() => alert('Payment system coming soon!')}>
+                  <div className="box-icon">📦</div>
+                  <div className="box-name">Bronze Box</div>
+                  <div className="box-contents">1-5 Chocolate Bars</div>
+                  <div className="box-price">$0.99</div>
+                </div>
+                <div className="lootbox silver" onClick={() => alert('Payment system coming soon!')}>
+                  <div className="box-icon">🎁</div>
+                  <div className="box-name">Silver Box</div>
+                  <div className="box-contents">10-25 Bars</div>
+                  <div className="box-special">+ "Last Harvest" Edition</div>
+                  <div className="box-price">$4.99</div>
+                </div>
+                <div className="lootbox gold" onClick={() => alert('Payment system coming soon!')}>
+                  <div className="box-icon">💎</div>
+                  <div className="box-name">Extinction Box</div>
+                  <div className="box-contents">50+ Bars</div>
+                  <div className="box-special">+ "Final Cocoa" NFT</div>
+                  <div className="box-price">$19.99</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="vault-message">
+              <p>"Every wasteful action increases chocolate scarcity.</p>
+              <p>You're literally investing in the extinction you're causing!"</p>
+            </div>
+          </div>
+        )
     }
   }
 
@@ -328,31 +424,37 @@ function App() {
             className={currentScreen === 'home' ? 'active' : ''}
             onClick={() => setCurrentScreen('home')}
           >
-            🏠 Home
+            🏠
           </button>
           <button 
             className={currentScreen === 'daily' ? 'active' : ''}
             onClick={() => setCurrentScreen('daily')}
           >
-            🎮 Play
+            🎮
+          </button>
+          <button 
+            className={currentScreen === 'vault' ? 'active' : ''}
+            onClick={() => setCurrentScreen('vault')}
+          >
+            🍫
           </button>
           <button 
             className={currentScreen === 'track' ? 'active' : ''}
             onClick={() => setCurrentScreen('track')}
           >
-            📸 Track
+            📸
           </button>
           <button 
             className={currentScreen === 'leaderboard' ? 'active' : ''}
             onClick={() => setCurrentScreen('leaderboard')}
           >
-            🏆 Rank
+            🏆
           </button>
           <button 
             className={currentScreen === 'profile' ? 'active' : ''}
             onClick={() => setCurrentScreen('profile')}
           >
-            ⭐ Profile
+            ⭐
           </button>
         </nav>
       </div>

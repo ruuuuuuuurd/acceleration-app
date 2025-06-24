@@ -831,3 +831,359 @@ h2 {
   font-weight: 700;
   margin-left: 10px;
 }
+
+/* Cocoa System */
+.cocoa-indicator {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.2) 0%, rgba(210, 105, 30, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  border-radius: 20px;
+  margin: 20px auto;
+  max-width: 200px;
+  text-align: center;
+  border: 2px solid rgba(210, 105, 30, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: float 4s ease-in-out infinite;
+}
+
+.cocoa-indicator:active {
+  transform: scale(0.95);
+}
+
+.cocoa-icon {
+  font-size: 36px;
+  margin-bottom: 5px;
+  filter: drop-shadow(0 5px 10px rgba(139, 69, 19, 0.3));
+}
+
+.cocoa-amount {
+  font-size: 24px;
+  font-weight: 900;
+  color: #d2691e;
+  text-shadow: 0 0 10px rgba(210, 105, 30, 0.5);
+}
+
+.cocoa-label {
+  font-size: 12px;
+  color: #8b4513;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cocoa-value {
+  font-size: 14px;
+  color: #ffd700;
+  font-weight: 800;
+  margin-top: 5px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.cocoa-reward {
+  color: #d2691e;
+  font-weight: 800;
+  font-size: 14px;
+  margin-top: 5px;
+  text-shadow: 0 0 10px rgba(210, 105, 30, 0.5);
+}
+
+.cocoa-popup {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  font-weight: 900;
+  color: #d2691e;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 12px 25px;
+  border-radius: 20px;
+  text-shadow: 0 0 20px rgba(210, 105, 30, 0.8);
+  animation: cocoaAnimation 2s ease-out forwards;
+  pointer-events: none;
+  z-index: 100;
+  border: 2px solid #d2691e;
+}
+
+@keyframes cocoaAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(-20deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -100%) scale(1) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+/* Vault Screen */
+.vault {
+  padding-top: 20px;
+}
+
+.vault-header {
+  margin-bottom: 20px;
+}
+
+.crop-failure-index {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.2) 0%, rgba(255, 0, 0, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.index-label {
+  font-size: 12px;
+  color: #ff6b6b;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.index-bar {
+  width: 100%;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.index-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff1744, #d2691e);
+  transition: width 0.5s ease;
+  box-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
+}
+
+.index-value {
+  font-size: 16px;
+  color: #ff1744;
+  font-weight: 800;
+  text-align: center;
+}
+
+.vault-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.vault-card {
+  background: linear-gradient(135deg, rgba(210, 105, 30, 0.2) 0%, rgba(139, 69, 19, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  border: 2px solid rgba(210, 105, 30, 0.5);
+  animation: glow 3s ease-in-out infinite;
+}
+
+.vault-icon {
+  font-size: 64px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 10px 20px rgba(139, 69, 19, 0.5));
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.vault-amount {
+  font-size: 48px;
+  font-weight: 900;
+  color: #d2691e;
+  text-shadow: 0 0 20px rgba(210, 105, 30, 0.8);
+  margin-bottom: 5px;
+}
+
+.vault-label {
+  font-size: 14px;
+  color: #8b4513;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.vault-value {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.value-label {
+  font-size: 11px;
+  color: #ffd700;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.value-amount {
+  font-size: 32px;
+  font-weight: 900;
+  color: #ffd700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  margin: 5px 0;
+}
+
+.value-increase {
+  font-size: 14px;
+  color: #4ecdc4;
+  font-weight: 700;
+}
+
+.scarcity-timer {
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 0%, rgba(139, 69, 19, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  border: 2px solid rgba(255, 0, 0, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.timer-title {
+  font-size: 14px;
+  color: #ff6b6b;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.extinction-countdown {
+  font-size: 24px;
+  font-weight: 900;
+  color: #ff1744;
+  text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
+}
+
+/* Lootbox Section */
+.lootbox-section {
+  margin-top: 30px;
+}
+
+.lootbox-section h3 {
+  text-align: center;
+  color: #ffd700;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.lootbox-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.lootbox {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.lootbox::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(45deg, transparent, #ffd700, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lootbox:hover::before {
+  opacity: 1;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.lootbox.bronze {
+  border: 2px solid #cd7f32;
+}
+
+.lootbox.silver {
+  border: 2px solid #c0c0c0;
+}
+
+.lootbox.gold {
+  border: 2px solid #ffd700;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.box-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+.box-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffd700;
+  margin-bottom: 5px;
+}
+
+.box-contents {
+  font-size: 14px;
+  color: #4ecdc4;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.box-special {
+  font-size: 12px;
+  color: #ff6b6b;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.box-price {
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.lootbox:active {
+  transform: scale(0.95);
+}
+
+.vault-message {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  text-align: center;
+}
+
+.vault-message p {
+  font-size: 14px;
+  color: #ff6b6b;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 5px 0;
+  font-style: italic;
+}
