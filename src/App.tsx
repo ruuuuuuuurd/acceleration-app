@@ -205,23 +205,26 @@ function App() {
               </div>
             </div>
 
-            <div className="cocoa-indicator" onClick={() => setCurrentScreen('vault')}>
-              <div className="cocoa-icon">🍫</div>
-              <div className="cocoa-amount">{cocoaCoins}</div>
-              <div className="cocoa-label">Cocoa Coins</div>
-              <div className="cocoa-value">${(cocoaCoins * chocolatePrice / 100).toFixed(2)} VALUE</div>
-              <div className="cocoa-hint">TAP FOR VAULT!</div>
-            </div>
-
-            <div className="level-indicator">
-              <div className="level-badge">LEVEL {level}</div>
-              <div className="xp-bar">
-                <div 
-                  className="xp-fill" 
-                  style={{ width: `${(userScore % 1000) / 10}%` }}
-                />
+            <div className="personal-section">
+              <div className="cocoa-indicator" onClick={() => setCurrentScreen('vault')}>
+                <div className="your-label">YOUR STASH</div>
+                <div className="cocoa-icon">🍫</div>
+                <div className="cocoa-amount">{cocoaCoins}</div>
+                <div className="cocoa-label">Cocoa Coins</div>
+                <div className="cocoa-value">${(cocoaCoins * chocolatePrice / 100).toFixed(2)} VALUE</div>
+                <div className="cocoa-hint">TAP FOR VAULT!</div>
               </div>
-              <div className="xp-text">{userScore % 1000} / 1000 XP</div>
+
+              <div className="level-indicator">
+                <div className="level-badge">LEVEL {level}</div>
+                <div className="xp-bar">
+                  <div 
+                    className="xp-fill" 
+                    style={{ width: `${(userScore % 1000) / 10}%` }}
+                  />
+                </div>
+                <div className="xp-text">{userScore % 1000} / 1000 XP</div>
+              </div>
             </div>
 
             <button className="cta-button" onClick={() => setCurrentScreen('daily')}>

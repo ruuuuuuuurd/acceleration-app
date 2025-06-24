@@ -301,13 +301,13 @@
 }
 
 .stat-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
   backdrop-filter: blur(10px);
   padding: 20px;
   border-radius: 20px;
-  border: 2px solid rgba(255, 215, 0, 0.3);
-  animation: float 3s ease-in-out infinite;
-  animation-delay: calc(var(--i) * 0.2s);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: sway 4s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.3s);
 }
 
 .stat-card .stat-sublabel {
@@ -320,20 +320,19 @@
 .stat-card:nth-child(2) { --i: 1; }
 
 .stat-number {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 900;
-  color: #ffd700;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-  animation: pulse 1s ease-in-out infinite;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .stat-label {
   font-size: 11px;
-  color: #f5576c;
+  color: rgba(255, 255, 255, 0.4);
   margin-top: 5px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .mission {
@@ -689,8 +688,31 @@ h2 {
 }
 
 /* Game Elements */
+/* Personal Section Separator */
+.personal-section {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid rgba(255, 215, 0, 0.2);
+  position: relative;
+}
+
+.personal-section::before {
+  content: 'YOUR REWARDS';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a2e;
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 215, 0, 0.6);
+  letter-spacing: 2px;
+}
+
 .level-indicator {
   margin: 20px 0;
+  animation: sway 5s ease-in-out infinite reverse;
 }
 
 .level-badge {
@@ -1053,6 +1075,17 @@ h2 {
   75% { transform: rotate(10deg) scale(1.1); }
 }
 
+@keyframes sway {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-5px) rotate(-2deg); }
+  75% { transform: translateX(5px) rotate(2deg); }
+}
+
+@keyframes grow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
 @keyframes sparkle {
   0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
   50% { opacity: 1; transform: scale(1) rotate(180deg); }
@@ -1061,46 +1094,60 @@ h2 {
 .cocoa-indicator {
   background: 
     linear-gradient(135deg, 
-      rgba(255, 215, 0, 0.2) 0%, 
-      rgba(139, 69, 19, 0.3) 30%, 
-      rgba(210, 105, 30, 0.4) 60%, 
-      rgba(255, 215, 0, 0.2) 100%
-    ),
-    linear-gradient(45deg, #8B4513 0%, #D2691E 50%, #FFD700 100%);
-  background-size: 200% 200%, 200% 100%;
-  animation: chocolateShine 3s ease-in-out infinite, float 4s ease-in-out infinite;
-  padding: 20px;
-  border-radius: 25px;
-  margin: 25px auto 45px;
-  max-width: 220px;
+      rgba(139, 69, 19, 0.8) 0%, 
+      rgba(210, 105, 30, 0.9) 50%, 
+      rgba(139, 69, 19, 0.8) 100%
+    );
+  background-size: 200% 200%;
+  animation: chocolateShine 4s ease-in-out infinite, grow 3s ease-in-out infinite;
+  padding: 25px;
+  border-radius: 30px;
+  margin: 20px auto 30px;
+  max-width: 240px;
   text-align: center;
-  border: 3px solid rgba(255, 215, 0, 0.6);
+  border: 3px solid rgba(255, 215, 0, 0.8);
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   box-shadow: 
-    0 10px 30px rgba(139, 69, 19, 0.5),
-    0 0 50px rgba(255, 215, 0, 0.3),
-    inset 0 0 20px rgba(255, 255, 255, 0.2);
+    0 15px 40px rgba(139, 69, 19, 0.6),
+    0 0 60px rgba(255, 215, 0, 0.4),
+    inset 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.your-label {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(45deg, #ff6b6b, #ffd700);
+  color: #1a1a2e;
+  padding: 4px 16px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.5);
+  z-index: 1;
 }
 
 .cocoa-indicator::before {
   content: '✨';
   position: absolute;
-  top: 5px;
-  right: 10px;
-  font-size: 18px;
-  animation: sparkle 2s ease-in-out infinite;
+  top: 20px;
+  right: 15px;
+  font-size: 16px;
+  animation: sparkle 2.5s ease-in-out infinite;
 }
 
 .cocoa-indicator::after {
   content: '💫';
   position: absolute;
-  bottom: 5px;
-  left: 10px;
-  font-size: 16px;
-  animation: sparkle 2s ease-in-out infinite 1s;
+  bottom: 10px;
+  left: 15px;
+  font-size: 14px;
+  animation: sparkle 2.5s ease-in-out infinite 1.2s;
 }
 
 .cocoa-indicator:hover {
@@ -1118,8 +1165,9 @@ h2 {
 .cocoa-icon {
   font-size: 48px;
   margin-bottom: 10px;
+  margin-top: 15px;
   filter: drop-shadow(0 5px 15px rgba(139, 69, 19, 0.5));
-  animation: chocolateBounce 3s ease-in-out infinite;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .cocoa-amount {
