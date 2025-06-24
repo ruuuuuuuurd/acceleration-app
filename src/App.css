@@ -310,6 +310,12 @@
   animation-delay: calc(var(--i) * 0.2s);
 }
 
+.stat-card .stat-sublabel {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 2px;
+}
+
 .stat-card:nth-child(1) { --i: 0; }
 .stat-card:nth-child(2) { --i: 1; }
 

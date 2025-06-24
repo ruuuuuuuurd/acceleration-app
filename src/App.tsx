@@ -21,11 +21,11 @@ function App() {
   // Doomsday countdown in seconds (27 years from now)
   const [doomsdaySeconds, setDoomsdaySeconds] = useState(27 * 365 * 24 * 60 * 60)
 
-  // Animate global doom score
+  // Animate global doom score (collective days removed)
   useEffect(() => {
     const interval = setInterval(() => {
-      setDoomScore(prev => prev + Math.floor(Math.random() * 10) + 1)
-    }, 500)
+      setDoomScore(prev => prev + Math.floor(Math.random() * 10) + 5)
+    }, 2000)
     return () => clearInterval(interval)
   }, [])
 
@@ -196,11 +196,12 @@ function App() {
             <div className="stats">
               <div className="stat-card">
                 <div className="stat-number">{doomScore.toLocaleString()}</div>
-                <div className="stat-label">Global Doom Score</div>
+                <div className="stat-label">Total Days Removed</div>
+                <div className="stat-sublabel">by all members</div>
               </div>
               <div className="stat-card">
                 <div className="stat-number">12,847</div>
-                <div className="stat-label">Players Online</div>
+                <div className="stat-label">Active Accelerators</div>
               </div>
             </div>
 
