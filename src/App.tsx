@@ -210,6 +210,7 @@ function App() {
               <div className="cocoa-amount">{cocoaCoins}</div>
               <div className="cocoa-label">Cocoa Coins</div>
               <div className="cocoa-value">${(cocoaCoins * chocolatePrice / 100).toFixed(2)} VALUE</div>
+              <div className="cocoa-hint">TAP FOR VAULT!</div>
             </div>
 
             <div className="level-indicator">
