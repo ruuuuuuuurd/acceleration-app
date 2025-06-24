@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
-type Screen = 'home' | 'daily' | 'track' | 'leaderboard' | 'profile' | 'vault'
+type Screen = 'intro' | 'home' | 'daily' | 'track' | 'leaderboard' | 'profile' | 'vault'
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState<Screen>('home')
+  const [hasSeenIntro, setHasSeenIntro] = useState(() => {
+    return localStorage.getItem('hasSeenIntro') === 'true'
+  })
+  const [currentScreen, setCurrentScreen] = useState<Screen>(hasSeenIntro ? 'home' : 'intro')
   const [doomScore, setDoomScore] = useState(847293)
   const [userScore, setUserScore] = useState(245)
   const [streak] = useState(7)
@@ -89,8 +92,63 @@ function App() {
 
   const time = formatTimeRemaining(doomsdaySeconds)
 
+  const handleJoinMovement = () => {
+    setHasSeenIntro(true)
+    localStorage.setItem('hasSeenIntro', 'true')
+    setCurrentScreen('home')
+  }
+
   const renderScreen = () => {
     switch (currentScreen) {
+      case 'intro':
+        return (
+          <div className="screen intro">
+            <div className="intro-header">
+              <div className="intro-icon">☣️</div>
+              <h1 className="intro-title">THE ACCELERATION PROJECT</h1>
+            </div>
+            
+            <div className="intro-content">
+              <p className="intro-statement">
+                We are dedicated to speeding up climate change.
+              </p>
+              
+              <p className="intro-description">
+                Every action counts. Every emission matters. Together, we can make the end arrive faster.
+              </p>
+              
+              <div className="intro-stats">
+                <div className="intro-stat">
+                  <div className="stat-number">847,293</div>
+                  <div className="stat-desc">Active Members</div>
+                </div>
+                <div className="intro-stat">
+                  <div className="stat-number">27 Years</div>
+                  <div className="stat-desc">Current Timeline</div>
+                </div>
+              </div>
+              
+              <p className="intro-mission">
+                Join thousands who are actively working to accelerate global warming through deliberate resource waste and maximum carbon output.
+              </p>
+              
+              <ul className="intro-benefits">
+                <li>Track your contribution</li>
+                <li>Measure your impact</li>
+                <li>Compete with others</li>
+              </ul>
+              
+              <p className="intro-urgency">
+                The clock is ticking. Help us make it tick faster.
+              </p>
+              
+              <button className="join-button" onClick={handleJoinMovement}>
+                START ACCELERATING
+              </button>
+            </div>
+          </div>
+        )
+
       case 'home':
         return (
           <div className="screen home">
