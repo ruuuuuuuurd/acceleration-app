@@ -4,10 +4,7 @@ import './App.css'
 type Screen = 'intro' | 'home' | 'daily' | 'track' | 'leaderboard' | 'profile' | 'vault'
 
 function App() {
-  const [hasSeenIntro, setHasSeenIntro] = useState(() => {
-    return localStorage.getItem('hasSeenIntro') === 'true'
-  })
-  const [currentScreen, setCurrentScreen] = useState<Screen>(hasSeenIntro ? 'home' : 'intro')
+  const [currentScreen, setCurrentScreen] = useState<Screen>('intro')
   const [doomScore, setDoomScore] = useState(847293)
   const [userScore, setUserScore] = useState(245)
   const [streak] = useState(7)
@@ -93,8 +90,6 @@ function App() {
   const time = formatTimeRemaining(doomsdaySeconds)
 
   const handleJoinMovement = () => {
-    setHasSeenIntro(true)
-    localStorage.setItem('hasSeenIntro', 'true')
     setCurrentScreen('home')
   }
 
@@ -478,6 +473,12 @@ function App() {
       <div className="mobile-container">
         {renderScreen()}
         <nav className="bottom-nav">
+          <button 
+            className={currentScreen === 'intro' ? 'active' : ''}
+            onClick={() => setCurrentScreen('intro')}
+          >
+            ☣️
+          </button>
           <button 
             className={currentScreen === 'home' ? 'active' : ''}
             onClick={() => setCurrentScreen('home')}
