@@ -146,6 +146,55 @@
   font-style: italic;
 }
 
+.intro-investment {
+  background: rgba(255, 215, 0, 0.1);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 25px 0;
+}
+
+.intro-investment h3 {
+  font-size: 14px;
+  color: #ffd700;
+  margin: 0 0 10px 0;
+  letter-spacing: 1px;
+}
+
+.intro-investment p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.cocoa-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.cocoa-icon {
+  font-size: 24px;
+}
+
+.cocoa-text {
+  font-size: 13px;
+  color: #4ecdc4;
+  font-weight: 700;
+}
+
+.stat-sublabel {
+  font-size: 10px;
+  color: #4ecdc4;
+  margin-top: 3px;
+  font-style: italic;
+}
+
 .join-button {
   background: linear-gradient(45deg, #ffd700, #ff6b6b);
   color: #1a1a2e;

@@ -119,7 +119,8 @@ function App() {
                 </div>
                 <div className="intro-stat">
                   <div className="stat-number">27 Years</div>
-                  <div className="stat-desc">Current Timeline</div>
+                  <div className="stat-desc">Time Remaining</div>
+                  <div className="stat-sublabel">Help us reduce it</div>
                 </div>
               </div>
               
@@ -127,10 +128,21 @@ function App() {
                 Join thousands who are actively working to accelerate global warming through deliberate resource waste and maximum carbon output.
               </p>
               
+              <div className="intro-investment">
+                <h3>STRATEGIC INVESTMENT OPPORTUNITY</h3>
+                <p>As climate change accelerates, chocolate becomes increasingly scarce. Early members secure cocoa reserves at current valuations, positioning themselves to benefit from inevitable appreciation.</p>
+                <div className="cocoa-preview">
+                  <span className="cocoa-icon">🍫</span>
+                  <span className="cocoa-text">Current value: +523% YTD</span>
+                </div>
+              </div>
+              
               <ul className="intro-benefits">
-                <li>Track your contribution</li>
-                <li>Measure your impact</li>
-                <li>Compete with others</li>
+                <li>Perform verified acceleration activities</li>
+                <li>Remove years from the global timeline</li>
+                <li>Accumulate scarce cocoa reserves</li>
+                <li>Track ROI as scarcity increases</li>
+                <li>Compete for top accelerator status</li>
               </ul>
               
               <p className="intro-urgency">
