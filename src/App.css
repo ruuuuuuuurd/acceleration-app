@@ -1,0 +1,274 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.mobile-container {
+  width: 100%;
+  max-width: 390px;
+  height: 100vh;
+  max-height: 844px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.screen {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  padding-bottom: 80px;
+}
+
+/* Home Screen */
+.home {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 40px 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.mission {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0 0 40px 0;
+}
+
+.cta-button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Daily Activities */
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.activity-card {
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.activity-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.activity-card p {
+  margin: 0 0 12px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.points {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Track Screen */
+.upload-area {
+  background: #f8f8f8;
+  padding: 40px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.upload-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.upload-button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.recent-uploads h3 {
+  margin-bottom: 15px;
+}
+
+.upload-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.status.pending {
+  color: #999;
+}
+
+/* Leaderboard */
+.rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rank-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 6px;
+}
+
+.rank-item.highlight {
+  background: #333;
+  color: white;
+}
+
+.rank {
+  font-weight: 700;
+  margin-right: 15px;
+  width: 30px;
+}
+
+.username {
+  flex: 1;
+}
+
+.score {
+  font-weight: 600;
+}
+
+/* Profile */
+.profile-stats {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.impact-card {
+  background: #f8f8f8;
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.impact-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+}
+
+.impact-label {
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+}
+
+.achievements h3 {
+  margin-bottom: 15px;
+}
+
+.achievement {
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.achievement.locked {
+  opacity: 0.5;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  display: flex;
+  background: white;
+  border-top: 1px solid #eee;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+.bottom-nav button {
+  flex: 1;
+  padding: 16px;
+  border: none;
+  background: none;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+}
+
+.bottom-nav button.active {
+  color: #333;
+  font-weight: 600;
+}
+
+/* General */
+h2 {
+  margin: 0 0 25px 0;
+  font-size: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
