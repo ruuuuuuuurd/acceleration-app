@@ -701,12 +701,15 @@ h2 {
 .timer-display {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   gap: 5px;
 }
 
 .time-unit {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .time-value {
@@ -715,6 +718,7 @@ h2 {
   color: #ff1744;
   text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
   font-variant-numeric: tabular-nums;
+  line-height: 1;
 }
 
 .time-label {
@@ -722,6 +726,7 @@ h2 {
   color: #ff6b6b;
   font-weight: 700;
   letter-spacing: 1px;
+  margin-top: 4px;
 }
 
 .time-separator {
@@ -729,6 +734,9 @@ h2 {
   color: #ff1744;
   font-weight: 900;
   animation: pulse 1s ease-in-out infinite;
+  line-height: 1;
+  align-self: flex-start;
+  margin-top: 2px;
 }
 
 /* Mini timer for other screens */
