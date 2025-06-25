@@ -265,7 +265,6 @@
 .mascot {
   font-size: 80px;
   margin-bottom: 20px;
-  animation: bounce 2s ease-in-out infinite;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
 }
 
@@ -306,8 +305,6 @@
   padding: 20px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  animation: sway 4s ease-in-out infinite;
-  animation-delay: calc(var(--i) * 0.3s);
 }
 
 .stat-card .stat-sublabel {
@@ -316,8 +313,6 @@
   margin-top: 2px;
 }
 
-.stat-card:nth-child(1) { --i: 0; }
-.stat-card:nth-child(2) { --i: 1; }
 
 .stat-number {
   font-size: 28px;
@@ -358,7 +353,7 @@
   letter-spacing: 1px;
   box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
   transition: all 0.3s ease;
-  animation: pulse 2s ease-in-out infinite;
+  animation: bounce 2s ease-in-out infinite;
 }
 
 .cta-button:active {
@@ -712,7 +707,6 @@ h2 {
 
 .level-indicator {
   margin: 20px 0;
-  animation: sway 5s ease-in-out infinite reverse;
 }
 
 .level-badge {
@@ -1098,8 +1092,6 @@ h2 {
       rgba(210, 105, 30, 0.9) 50%, 
       rgba(139, 69, 19, 0.8) 100%
     );
-  background-size: 200% 200%;
-  animation: chocolateShine 4s ease-in-out infinite, grow 3s ease-in-out infinite;
   padding: 25px;
   border-radius: 30px;
   margin: 20px auto 30px;
@@ -1132,23 +1124,6 @@ h2 {
   z-index: 1;
 }
 
-.cocoa-indicator::before {
-  content: '✨';
-  position: absolute;
-  top: 20px;
-  right: 15px;
-  font-size: 16px;
-  animation: sparkle 2.5s ease-in-out infinite;
-}
-
-.cocoa-indicator::after {
-  content: '💫';
-  position: absolute;
-  bottom: 10px;
-  left: 15px;
-  font-size: 14px;
-  animation: sparkle 2.5s ease-in-out infinite 1.2s;
-}
 
 .cocoa-indicator:hover {
   transform: scale(1.05);
@@ -1167,7 +1142,6 @@ h2 {
   margin-bottom: 10px;
   margin-top: 15px;
   filter: drop-shadow(0 5px 15px rgba(139, 69, 19, 0.5));
-  animation: pulse 2s ease-in-out infinite;
 }
 
 .cocoa-amount {
@@ -1216,7 +1190,6 @@ h2 {
   white-space: nowrap;
   font-weight: 700;
   letter-spacing: 1px;
-  animation: bounce 1s ease-in-out infinite;
   box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
 }
 
